@@ -12,7 +12,7 @@ class Item(Resource):
     @jwt_required()
     def get(self, measure):
        quakeitem = ItemModel.find_by_measure(measure)
-        if quakeitem:
+       if quakeitem:
             return quakeitem.json()
         return {'message': 'Quake measure not found'}, 404
 
