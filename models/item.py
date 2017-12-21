@@ -4,7 +4,7 @@ class ItemModel(db.Model):
     __tablename__ = 'quakeitems'
 
     magnitude = db.Column(db.Float(precision=1))
-    measure = db.Column(dd.Integer, primary_key=True)
+    measure = db.Column(db.Integer, primary_key=True)
 
 #    location = db.Column(db.String(80), db.ForeignKey('locations.id'))
 #    locations = db.relationship('StoreModel')
