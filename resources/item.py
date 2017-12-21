@@ -9,10 +9,10 @@ class Item(Resource):
         help='This field cannot be left blank!'
     )
 
-    @jwt_required()
+
     def get(self, measure):
-        quakeitem = ItemModel.find_by_measure(measure)
-        if quakeitem:
+       quakeitem = ItemModel.find_by_measure(measure)
+       if quakeitem:
             return quakeitem.json()
         return {'message': 'Quake measure not found'}, 404
 
