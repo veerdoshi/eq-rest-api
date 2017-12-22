@@ -2,7 +2,6 @@ from db import db
 
 class QuakeModel(db.Model):
     __tablename__ = 'items'
-    extended_existing = True
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
     price = db.Column(db.Float(precision=2))
