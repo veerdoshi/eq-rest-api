@@ -4,7 +4,7 @@ class SensorModel(db.Model):
     __tablename__ = 'sensors'
 
     id = db.Column(db.Integer, primary_key=True)
-    magnitude = db.Column(db.Integer(80))
+    magnitude = db.Column(db.Float(80))
 
     quakes = db.relationship('QuakeModel', lazy='dynamic')
 
