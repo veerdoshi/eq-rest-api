@@ -55,6 +55,6 @@ class Quake(Resource):
         return quake.json(), 201
 
 
-class ItemList(Resource):
+class QuakeList(Resource):
     def get(self):
          return {'quakes': [quake.json() for quake in QuakeModel.query.all()]}
