@@ -14,7 +14,6 @@ class Item(Resource):
         quakeitem = ItemModel.find_by_measure(measure)
         if quakeitem:
             return quakeitem.json()
-        return {'message': 'Quake measure not found'}, 404
 
     def post(self, name):
         data = Item.parser.parse_args()
