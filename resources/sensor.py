@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from models.store import SensorModel
+from models.sensor import SensorModel
 
 
 class Sensor(Resource):
