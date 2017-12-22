@@ -9,7 +9,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'veer'
 api = Api(app)
 
-api.add_resource(Item, '/quake/<int:measure>')
+api.add_resource(Item, '/quake')
 
 api.add_resource(ItemList, '/quakes')
 
