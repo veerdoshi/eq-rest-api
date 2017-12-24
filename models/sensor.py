@@ -1,7 +1,7 @@
 from db import db
 
 class SensorModel(db.Model):
-    __tablename__ = None
+    __tablename__ = 'sensors'
 
     id = db.Column(db.Integer, primary_key=True)
     magnitude = db.Column(db.Float(80))
