@@ -8,7 +8,7 @@ class QuakeModel(db.Model):
     latitude = db.Column(db.Float(precision=4))
     longitude = db.Column(db.Float(precision=4))
 
-    sensor_id = db.Column(db.Integer, db.ForeignKey('stores.id'))
+    sensor_id = db.Column(db.Integer, db.ForeignKey('sensors.id'))
     sensor = db.relationship('SensorModel')
 
     def __init__(self, magnitude, latitude, longitude, sensor_id):
