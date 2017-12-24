@@ -1,24 +1,22 @@
 from db import db
 
-class QuakeModel(db.Model):
-#    __tablename__ = 'items'
+class SensorModel(db.Model):
+    __tablename__ = None
 
     id = db.Column(db.Integer, primary_key=True)
-    magnitude = db.Column(db.Float(precision=1))
-    latitude = db.Column(db.Float(precision=4))
-    longitude = db.Column(db.Float(precision=4))
+    magnitude = db.Column(db.Float(80))
 
-    sensor_id = db.Column(db.Integer, db.ForeignKey('stores.id'))
-    sensor = db.relationship('SensorModel')
+    quakes = db.relationship('QuakeModel', lazy='dynamic')
 
-    def __init__(self, magnitude, latitude, longitude, sensor_id):
-        self.magnitude = magnitude
-        self.latitude = latitude
-        self.longitude = longitude
-        self.sensor_id = sensor_id
+    def __init__(self, name):
+        self.name = name
 
     def json(self):
-        return {'magnitude': self.magnitude, 'latitude': self.latitude, 'longitude': self.longitude}
+        return {'magnitude': self.magnitude, 'quakes': [quake.json() for quake in self.quakes.all()]}
+
+    @classmethod
+    def find_by_name(cls, name):
+        return cls.query.filter_by(name=name).first()
 
     def save_to_db(self):
         db.session.add(self)
