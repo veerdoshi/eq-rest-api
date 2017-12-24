@@ -1,10 +1,12 @@
 from db import db
 
 class QuakeModel(db.Model):
-#    __tablename__ = 'quakes'
+    __tablename__ = 'quakes'
+
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80))
-    price = db.Column(db.Float(precision=2))
+    magnitude = db.Column(db.Float(precision=1))
+    latitude = db.Column(db.Float(precision=4))
+    longitude = db.Column(db.Float(precision=4))
 
     sensor_id = db.Column(db.Integer, db.ForeignKey('stores.id'))
     sensor = db.relationship('SensorModel')
@@ -15,15 +17,8 @@ class QuakeModel(db.Model):
         self.longitude = longitude
         self.sensor_id = sensor_id
 
-#        self.name = name
-#        self.price = price
-#        self.store_id = store_id
     def json(self):
         return {'magnitude': self.magnitude, 'latitude': self.latitude, 'longitude': self.longitude}
-
-#    @classmethod
-#    def find_by_name(cls, name):
-#        return cls.query.filter_by(name=name).first()
 
     def save_to_db(self):
         db.session.add(self)
