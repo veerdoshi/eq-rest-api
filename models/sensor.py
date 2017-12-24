@@ -1,7 +1,7 @@
 from db import db
 
 class QuakeModel(db.Model):
-    __tablename__ = 'items'
+#    __tablename__ = 'items'
 
     id = db.Column(db.Integer, primary_key=True)
     magnitude = db.Column(db.Float(precision=1))
