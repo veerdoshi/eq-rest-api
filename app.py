@@ -14,7 +14,7 @@ api = Api(app)
 
 
 api.add_resource(Sensor, '/sensor/<string:name>')
-api.add_resource(Quake, '/quake/')
+api.add_resource(Quake, '/quake')
 
 api.add_resource(QuakeList, '/quakes')
 api.add_resource(SensorList, '/sensors')
