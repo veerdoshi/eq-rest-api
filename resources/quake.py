@@ -8,14 +8,7 @@ class Quake(Resource):
         required=True,
         help='This field cannot be left blank!'
     )
-
-    parser = reqparse.RequestParser()
-    parser.add_argument('magnitude',
-        type=float,
-        required=True,
-        help='This field cannot be left blank!'
-    )
-
+    
     parser = reqparse.RequestParser()
     parser.add_argument('latitude',
         type=float,
