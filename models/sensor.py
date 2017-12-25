@@ -4,7 +4,7 @@ class SensorModel(db.Model):
     __tablename__ = 'sensors'
 
     id = db.Column(db.Integer, primary_key=True)
-    magnitude = db.Column(db.Float(1))
+    name = db.Column(db.String(80))
 
     quakes = db.relationship('QuakeModel', lazy='dynamic')
 
@@ -12,7 +12,7 @@ class SensorModel(db.Model):
         self.name = name
 
     def json(self):
-        return {'magnitude': self.magnitude, 'quakes': [quake.json() for quake in self.quakes.all()]}
+        return {'name': self.name, 'quakes': [quake.json() for quake in self.quakes.all()]}
 
     @classmethod
     def find_by_name(cls, name):
