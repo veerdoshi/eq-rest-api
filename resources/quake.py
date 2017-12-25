@@ -8,7 +8,7 @@ class Quake(Resource):
         required=True,
         help='This field cannot be left blank!'
     )
-    
+
     parser = reqparse.RequestParser()
     parser.add_argument('latitude',
         type=float,
@@ -40,10 +40,10 @@ class Quake(Resource):
     def post(self):
         data = Item.parser.parse_args()
         quake = QuakeModel(**data)
-        try:
-            quake.save_to_db()
-        except:
-            return {"message": "An error occurred while inserting the quake measure"}, 500
+#        try:
+        quake.save_to_db()
+#        except:
+#            return {"message": "An error occurred while inserting the quake measure"}, 500
 
         return quake.json(), 201
 
