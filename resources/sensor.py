@@ -12,10 +12,10 @@ class Sensor(Resource):
         if SensorModel.find_by_name(name):
             return {'message': "A sensor with name '{}' already exists.".format(name)}, 400
         sensor = SensorModel(magnitude)
-        try:
-            sensor.save_to_db()
-        except:
-            return {'message': 'An error occurred while creating the sensor.'}, 500
+#        try:
+        sensor.save_to_db()
+#        except:
+#            return {'message': 'An error occurred while creating the sensor.'}, 500
 
         return sensor.json(), 201
 
