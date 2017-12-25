@@ -38,7 +38,7 @@ class Quake(Resource):
 
 
     def post(self):
-        data = Item.parser.parse_args()
+        data = Quake.parser.parse_args()
         quake = QuakeModel(**data)
 #        try:
         quake.save_to_db()
